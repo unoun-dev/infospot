@@ -1,8 +1,17 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="refresh" content="0;url=https://example.com" />
+  <meta charset="UTF-8">
+  <title>読み込み中...</title>
+  <script>
+    window.onload = function () {
+      const query = window.location.search;
+      const targetUrl = "https://script.google.com/macros/s/AKfycbyvrUAhCl8P24T5M6zMC6Fva9tC5IZFK8m4GQc-JIhR0T2vVhl_ETlxg7PjFSuO4sBR/exec" + query;
+      window.location.href = targetUrl;
+    };
+  </script>
 </head>
 <body>
-  <p>リダイレクト中...</p>
+  <p>読み込み中...</p>
 </body>
 </html>
