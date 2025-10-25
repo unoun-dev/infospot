@@ -6,8 +6,14 @@
   <script>
     window.onload = function () {
       const query = window.location.search;
-      const targetUrl = "https://script.google.com/macros/s/AKfycbzSuqkWPOnBm4Kur9HLp7lQvpBdhcs9quOWq_9Tb6yXeL3Uc-nLa66gX95fU1izwmQ/exec" + query;
-      window.location.href = targetUrl;
+      const params = new URLSearchParams(query);
+      const grantx = params.get("grantx");
+
+      if (grantx === "1") {
+        window.location.replace("https://script.google.com/macros/s/AKfycbwZMYfgEilM5FtnKeVxFJbxYWUDqnaM3-eFNSArim7WWZvLiHl-13WrsrusI93AOaM6Iw/exec" + query);
+      } else {
+        window.location.replace("https://script.google.com/macros/s/AKfycbyacdNHQEimKivnYLP9vl3my0cPfaNqKo8ygB158w3PQfKTJcAHLy4jE8WQyKldT81y/exec" + query);
+      }
     };
   </script>
 </head>
