@@ -7,13 +7,7 @@
     window.onload = function () {
       const query = window.location.search;
       const params = new URLSearchParams(query);
-      const grantx = params.get("grantx");
-
-      if (grantx === "1") {
-        window.location.replace("https://script.google.com/macros/s/AKfycbwZMYfgEilM5FtnKeVxFJbxYWUDqnaM3-eFNSArim7WWZvLiHl-13WrsrusI93AOaM6Iw/exec" + query);
-      } else {
-        window.location.replace("https://script.google.com/macros/s/AKfycbyacdNHQEimKivnYLP9vl3my0cPfaNqKo8ygB158w3PQfKTJcAHLy4jE8WQyKldT81y/exec" + query);
-      }
+      window.location.replace("https://script.google.com/macros/s/AKfycbxErA_w8q9pfcf3vccpsXm4fJYfXG5wVSkXvHut8SX0xlLUYnq34TOz5RlvCslB0Htf/exec" + query);
     };
   </script>
 </head>
