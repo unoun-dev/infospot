@@ -67,6 +67,68 @@
       }
     }
 
+    function sortTable(th, columnIndex) {
+
+      const table = th.closest('table');
+      const tbody = table.querySelector('tbody');
+
+      const rows = Array.from(
+        tbody.querySelectorAll('tr')
+      );
+
+      const currentOrder =
+        th.getAttribute('data-order') || 'asc';
+
+      const nextOrder =
+        currentOrder === 'asc'
+        ? 'desc'
+        : 'asc';
+
+      table.querySelectorAll('th').forEach(header => {
+        header.removeAttribute('data-order');
+      });
+
+      th.setAttribute('data-order', nextOrder);
+
+      rows.sort((a, b) => {
+
+        const aText =
+          a.children[columnIndex]
+          .innerText
+          .trim();
+
+        const bText =
+          b.children[columnIndex]
+          .innerText
+          .trim();
+
+        const aNum = parseFloat(aText);
+        const bNum = parseFloat(bText);
+
+        const isNumber =
+          !isNaN(aNum) && !isNaN(bNum);
+
+        let result;
+
+        if(isNumber) {
+          result = aNum - bNum;
+        } else {
+          result = aText.localeCompare(
+            bText,
+            'ja'
+          );
+        }
+
+        return nextOrder === 'asc'
+          ? result
+          : -result;
+      });
+
+      rows.forEach(row =>
+        tbody.appendChild(row)
+      );
+    }
+
     loadPage();
 
   </script>
